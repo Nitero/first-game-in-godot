@@ -20,6 +20,7 @@ buses/default_bus_layout="res://project/systems/audio/default_bus_layout.tres"
 
 [autoload]
 
+Events="*res://project/core/events.gd"
 Music="*res://project/systems/audio/music.tscn"
 
 [display]

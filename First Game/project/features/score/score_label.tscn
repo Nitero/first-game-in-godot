@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbiaicmpqyhkn"]
+
+[ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://project/_common/fonts/PixelOperator8-Bold.ttf" id="1_kjl62"]
+[ext_resource type="Script" uid="uid://dr8x88lempun3" path="res://project/features/score/score_label.gd" id="2_px6hq"]
+
+[node name="ScoreLabel" type="Label"]
+offset_left = 513.0
+offset_top = -144.0
+offset_right = 618.0
+offset_bottom = -125.0
+theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
+theme_override_fonts/font = ExtResource("1_kjl62")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins."
+horizontal_alignment = 1
+autowrap_mode = 2
+script = ExtResource("2_px6hq")

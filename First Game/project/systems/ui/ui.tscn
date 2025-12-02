@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfbcw0r6i7ns7"]
+
+[ext_resource type="PackedScene" uid="uid://dbiaicmpqyhkn" path="res://project/features/score/score_label.tscn" id="1_7o5gy"]
+
+[node name="Ui" type="CanvasLayer"]
+
+[node name="ScoreLabel" parent="." instance=ExtResource("1_7o5gy")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 16.0
+offset_right = 0.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Coins: 9999"
+format = "Coins: %s"
