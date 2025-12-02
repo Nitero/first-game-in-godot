@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="First Game"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://project/main/bootstrap/bootstrap.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://project/systems/audio/default_bus_layout.tres"
 
 [autoload]
 
-Music="*res://scenes/music.tscn"
+Music="*res://project/systems/audio/music.tscn"
 
 [display]
 
