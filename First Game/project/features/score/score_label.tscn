@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbiaicmpqyhkn"]
 
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://project/_common/fonts/PixelOperator8-Bold.ttf" id="1_kjl62"]
-[ext_resource type="Script" uid="uid://dr8x88lempun3" path="res://project/features/score/score_label.gd" id="2_px6hq"]
+[ext_resource type="Script" uid="uid://dn6onmmgbrd1g" path="res://project/features/score/ScoreLabel.cs" id="2_px6hq"]
 
 [node name="ScoreLabel" type="Label"]
 offset_left = 513.0

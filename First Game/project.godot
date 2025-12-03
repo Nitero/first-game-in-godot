@@ -12,7 +12,7 @@ config_version=5
 
 config/name="First Game"
 run/main_scene="res://project/main/bootstrap/bootstrap.tscn"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 
 [audio]
 
@@ -20,8 +20,9 @@ buses/default_bus_layout="res://project/systems/audio/default_bus_layout.tres"
 
 [autoload]
 
-Events="*res://project/core/events.gd"
 Music="*res://project/systems/audio/music.tscn"
+Events="*res://project/core/events.gd"
+EventsSharp="*res://project/core/EventsSharp.cs"
 
 [display]
 
