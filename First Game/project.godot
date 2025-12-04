@@ -22,6 +22,8 @@ buses/default_bus_layout="res://project/systems/audio/default_bus_layout.tres"
 
 Events="*res://project/core/events.gd"
 Music="*res://project/systems/audio/music.tscn"
+TimeScaleService="*res://project/systems/time/time_scale_service.gd"
+GameStates="*res://project/core/game_states.gd"
 
 [display]
 

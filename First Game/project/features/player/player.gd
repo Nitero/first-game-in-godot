@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Player
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -40,3 +40,7 @@ func play_animation():
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
+
+func die():
+	$CollisionShape2D.queue_free()
+	Events.player_died.emit()
