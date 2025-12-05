@@ -11,20 +11,21 @@ const AIR_ACCELERATION = 500
 const AIR_DECELERATION = 500
 const AIR_TURN_SPEED = 400
 
-const JUMP_HEIGHT = 110
-const TIME_TO_JUMP_APEX = 1
-const UP_MOVEMENT_MULTIPLIER = 0.5
-const DOWN_MOVEMENT_MULTIPLIER = 1.25
-const JUMP_CUTOFF = 1.5
+const JUMP_HEIGHT = 50
+const TIME_TO_JUMP_APEX = 0.5
 
-const FALL_SPEED_LIMIT = 350
+const JUMP_RISE_GRAVITY_MULTIPLIER   = 0.5
+const JUMP_FALL_GRAVITY_MULTIPLIER   = 1.25
+const JUMP_CANCEL_GRAVITY_MULTIPLIER = 1.5
+const DEFAULT_GRAVITY_MULTIPLIER     = 1
+
 const JUMP_SPEED_LIMIT = INF
+const FALL_SPEED_LIMIT = 350
 
 const JUMP_BUFFER = 0.2
 const COYOTE_TIME = 0.2
 
 const EPSILON = 0.01
-const DEFAULT_GRAVITY_MULTIPLIER = 1
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var look_direction: float
@@ -45,7 +46,7 @@ func _input(_event):
 	if Input.is_action_just_pressed("jump"):
 		is_jump_desired = true
 	is_jump_pressed = Input.is_action_pressed("jump")
-	
+
 func _process(delta):
 	poll_jump_buffer(delta)
 	poll_coyote_time(delta)
@@ -107,21 +108,23 @@ func execute_jump(gravity_multiplier):
 		jump_buffer_timer = 0
 		coyote_time_timer = 0
 
-		var new_gravity = (2.0 * JUMP_HEIGHT) / (TIME_TO_JUMP_APEX * TIME_TO_JUMP_APEX)
-		var gravity_scale = (new_gravity / gravity) * gravity_multiplier
-
-		var jump_speed = sqrt(2.0 * gravity * gravity_scale * JUMP_HEIGHT)
+		var jump_speed = sqrt(2.0 * gravity * gravity_multiplier * JUMP_HEIGHT * JUMP_RISE_GRAVITY_MULTIPLIER)
 		velocity.y -= jump_speed
 
 func get_gravity_multiplier():
 	var gravity_multiplier = DEFAULT_GRAVITY_MULTIPLIER
+
 	if velocity.y < -EPSILON && !is_on_floor():
 		if is_jump_pressed && is_jump_ongoing:
-			gravity_multiplier = UP_MOVEMENT_MULTIPLIER
+			gravity_multiplier = JUMP_RISE_GRAVITY_MULTIPLIER
 		else:
-			gravity_multiplier = JUMP_CUTOFF
+			gravity_multiplier = JUMP_CANCEL_GRAVITY_MULTIPLIER
 	elif velocity.y > EPSILON && !is_on_floor():
-		gravity_multiplier = DOWN_MOVEMENT_MULTIPLIER
+		gravity_multiplier = JUMP_FALL_GRAVITY_MULTIPLIER
+
+	var jump_time = TIME_TO_JUMP_APEX * JUMP_RISE_GRAVITY_MULTIPLIER
+	var new_gravity = (2.0 * JUMP_HEIGHT * JUMP_RISE_GRAVITY_MULTIPLIER) / (jump_time * jump_time)
+	gravity_multiplier *= (new_gravity / gravity)
 	return gravity_multiplier
 
 func flip_sprite_to_look_direction():
