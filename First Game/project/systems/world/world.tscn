@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck8dvs56w41ff"]
+[gd_scene load_steps=15 format=3 uid="uid://ck8dvs56w41ff"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://project/features/environment/tiles/world_tileset.png" id="1_hl1an"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://project/features/environment/zones/killzone.tscn" id="2_neqsu"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://project/_common/fonts/PixelOperator8.ttf" id="5_suk6w"]
 [ext_resource type="PackedScene" uid="uid://dbiaicmpqyhkn" path="res://project/features/score/score_label.tscn" id="6_d4tnp"]
 [ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://project/features/enemies/slime.tscn" id="7_3ouea"]
+[ext_resource type="PackedScene" uid="uid://d327nody53exp" path="res://project/features/environment/traps/chain_ball.tscn" id="8_3qn4w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ashvg"]
 texture = ExtResource("1_hl1an")
@@ -322,3 +323,8 @@ horizontal_alignment = 1
 
 [node name="Slime" parent="Enemies" instance=ExtResource("7_3ouea")]
 position = Vector2(529, 81)
+
+[node name="Traps" type="Node" parent="."]
+
+[node name="ChainBall" parent="Traps" instance=ExtResource("8_3qn4w")]
+position = Vector2(162, 69)
