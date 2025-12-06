@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://d327nody53exp"]
 
+[ext_resource type="Script" uid="uid://7sgu5utmss40" path="res://project/features/environment/traps/chain_ball.gd" id="1_l7x6b"]
 [ext_resource type="Texture2D" uid="uid://cajevwittorvg" path="res://project/features/environment/traps/chain.png" id="2_p2bso"]
 [ext_resource type="Texture2D" uid="uid://c004w1nq2fmvq" path="res://project/features/environment/traps/chain_ball.png" id="2_pi7g4"]
 [ext_resource type="PackedScene" uid="uid://dtrbka1ef726o" path="res://project/features/environment/zones/killzone.tscn" id="3_fbb5y"]
 [ext_resource type="Texture2D" uid="uid://bkfukijtnmtwr" path="res://project/features/environment/traps/chain_anchor.png" id="3_l7x6b"]
-[ext_resource type="Script" uid="uid://cxjkl5aj5uwnw" path="res://project/features/environment/traps/trap_spinner.gd" id="3_pi7g4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbb5y"]
 atlas = ExtResource("2_pi7g4")
@@ -24,22 +24,22 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_pi7g4"]
 
 [node name="ChainBall" type="Node2D"]
-
-[node name="TrapSpinner" type="Node" parent="."]
-script = ExtResource("3_pi7g4")
+position = Vector2(8, 8)
+rotation = -115.64482
+script = ExtResource("1_l7x6b")
 
 [node name="Chain" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(0, -25)
+position = Vector2(0, -24)
 texture = ExtResource("2_p2bso")
 region_enabled = true
-region_rect = Rect2(0, 0, 16, 50)
+region_rect = Rect2(0, 0, 16, 48)
 
 [node name="ChainAnchor" type="Sprite2D" parent="."]
 texture = ExtResource("3_l7x6b")
 
 [node name="Ball" type="Node2D" parent="."]
-position = Vector2(0, -50)
+position = Vector2(0, -48)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Ball"]
 sprite_frames = SubResource("SpriteFrames_a8uf2")

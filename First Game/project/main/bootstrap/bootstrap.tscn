@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=5 format=3 uid="uid://cuv4vme4rwno0"]
 
 [ext_resource type="Script" uid="uid://ceixq6dwgl7g4" path="res://project/main/bootstrap/bootstrap.gd" id="1_867wk"]
 [ext_resource type="PackedScene" uid="uid://ck8dvs56w41ff" path="res://project/systems/world/world.tscn" id="4_867wk"]
-[ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://project/features/player/player.tscn" id="4_byoxd"]
 [ext_resource type="Script" uid="uid://dxuf40asaxghr" path="res://project/features/score/score_tracker.gd" id="5_867wk"]
 [ext_resource type="PackedScene" uid="uid://cfbcw0r6i7ns7" path="res://project/systems/ui/ui.tscn" id="11_onni2"]
 
@@ -10,17 +9,6 @@
 script = ExtResource("1_867wk")
 
 [node name="World" parent="." instance=ExtResource("4_867wk")]
-
-[node name="Player" parent="World" instance=ExtResource("4_byoxd")]
-position = Vector2(34, 37)
-
-[node name="Camera2D" type="Camera2D" parent="World/Player"]
-position = Vector2(0, -7)
-zoom = Vector2(4, 4)
-process_callback = 0
-limit_bottom = 120
-limit_smoothed = true
-position_smoothing_enabled = true
 
 [node name="Ui" parent="." instance=ExtResource("11_onni2")]
 
