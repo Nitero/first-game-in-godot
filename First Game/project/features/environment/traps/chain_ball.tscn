@@ -25,7 +25,7 @@ animations = [{
 
 [node name="ChainBall" type="Node2D"]
 position = Vector2(8, 8)
-rotation = -115.64482
+rotation = -15143.029
 script = ExtResource("1_l7x6b")
 
 [node name="Chain" type="Sprite2D" parent="."]

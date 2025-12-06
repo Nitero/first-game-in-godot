@@ -27,6 +27,8 @@ const COYOTE_TIME = 0.2
 
 const EPSILON = 0.01
 
+const JUMP_TIME = TIME_TO_JUMP_APEX * JUMP_RISE_GRAVITY_MULTIPLIER
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var look_direction: float
 var desired_velocity: Vector2
@@ -122,8 +124,7 @@ func get_gravity_multiplier():
 	elif velocity.y > EPSILON && !is_on_floor():
 		gravity_multiplier = JUMP_FALL_GRAVITY_MULTIPLIER
 
-	var jump_time = TIME_TO_JUMP_APEX * JUMP_RISE_GRAVITY_MULTIPLIER
-	var new_gravity = (2.0 * JUMP_HEIGHT * JUMP_RISE_GRAVITY_MULTIPLIER) / (jump_time * jump_time)
+	var new_gravity = (2.0 * JUMP_HEIGHT * JUMP_RISE_GRAVITY_MULTIPLIER) / (JUMP_TIME * JUMP_TIME)
 	gravity_multiplier *= (new_gravity / gravity)
 	return gravity_multiplier
 
