@@ -48,6 +48,8 @@ func _input(_event):
 	if Input.is_action_just_pressed("jump"):
 		is_jump_desired = true
 	is_jump_pressed = Input.is_action_pressed("jump")
+	if Input.is_action_just_pressed("restart"):
+		restart()
 
 func _process(delta):
 	poll_jump_buffer(delta)
@@ -146,3 +148,6 @@ func play_animation():
 func die():
 	$CollisionShape2D.queue_free()
 	Events.player_died.emit()
+
+func restart():
+	Events.player_restarted.emit()

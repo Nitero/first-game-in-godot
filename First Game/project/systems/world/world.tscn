@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ck8dvs56w41ff"]
+[gd_scene load_steps=17 format=3 uid="uid://ck8dvs56w41ff"]
 
 [ext_resource type="Texture2D" uid="uid://d0q2g65ahgok" path="res://project/features/environment/tiles/world_tileset.png" id="1_hl1an"]
 [ext_resource type="PackedScene" uid="uid://dqnaqj8yb6hwd" path="res://project/features/player/player.tscn" id="2_e7rb1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dbiaicmpqyhkn" path="res://project/features/score/score_label.tscn" id="6_d4tnp"]
 [ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://project/features/enemies/slime.tscn" id="7_3ouea"]
 [ext_resource type="PackedScene" uid="uid://d327nody53exp" path="res://project/features/environment/traps/chain_ball.tscn" id="8_3qn4w"]
+[ext_resource type="PackedScene" uid="uid://d2yylcpgwln0h" path="res://project/features/environment/goal/goal.tscn" id="10_iiikl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ashvg"]
 texture = ExtResource("1_hl1an")
@@ -390,4 +391,6 @@ spin_duration = 1.0
 position = Vector2(840, -8)
 rotation = 0.0
 length_steps = 1
-spin_duration = 1.0
+
+[node name="Goal" parent="." instance=ExtResource("10_iiikl")]
+position = Vector2(568, -105)

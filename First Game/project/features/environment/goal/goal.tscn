@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2yylcpgwln0h"]
+
+[ext_resource type="Script" uid="uid://btmigtuv5r44k" path="res://project/features/environment/goal/goal.gd" id="1_maepi"]
+[ext_resource type="Texture2D" uid="uid://mem5013goa8x" path="res://project/features/environment/goal/particles.png" id="2_42sj1"]
+[ext_resource type="Script" path="res://project/features/environment/goal/test123.gd" id="3_42sj1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w6ufu"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_iiikl"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.37931034, 54.432987), 7.43026, 7.43026, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_e7rb1"]
+_data = [Vector2(0, 0.14896905), 0.0, 0.0, 0, 0, Vector2(0.3713528, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.47731966), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_iiikl"]
+offsets = PackedFloat32Array(0, 0.73504275, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_e7rb1"]
+offsets = PackedFloat32Array(0.05982906, 0.26210827, 0.36182335, 0.53276354, 0.71794873, 0.92877495)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0.9666667, 0, 1, 1, 0.95, 0, 1, 0, 1, 0.0333333, 1, 0, 0.3666668, 1, 1, 0.8000002, 0, 1, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iiikl"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iiikl"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+anim_offset_max = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6ufu"]
+size = Vector2(145, 96)
+
+[node name="Goal" type="Node2D"]
+script = ExtResource("1_maepi")
+
+[node name="ConfettiParticles" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_w6ufu")
+position = Vector2(0, 50)
+amount = 420
+texture = ExtResource("2_42sj1")
+lifetime = 5.0
+explosiveness = 0.95
+randomness = 1.0
+lifetime_randomness = 0.25
+direction = Vector2(0, -1)
+spread = 20.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
+angular_velocity_min = -500.0
+angular_velocity_max = 500.0
+tangential_accel_min = -50.0
+tangential_accel_max = 50.0
+damping_min = 4.0
+damping_max = 5.508
+damping_curve = SubResource("Curve_iiikl")
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_e7rb1")
+color_ramp = SubResource("Gradient_iiikl")
+color_initial_ramp = SubResource("Gradient_e7rb1")
+anim_offset_max = 1.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_iiikl")
+texture = ExtResource("2_42sj1")
+process_material = SubResource("ParticleProcessMaterial_iiikl")
+
+[node name="Trigger" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("3_42sj1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+shape = SubResource("RectangleShape2D_w6ufu")
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]

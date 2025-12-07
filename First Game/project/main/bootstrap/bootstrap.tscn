@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuv4vme4rwno0"]
+[gd_scene load_steps=7 format=3 uid="uid://cuv4vme4rwno0"]
 
 [ext_resource type="Script" uid="uid://ceixq6dwgl7g4" path="res://project/main/bootstrap/bootstrap.gd" id="1_867wk"]
 [ext_resource type="PackedScene" uid="uid://ck8dvs56w41ff" path="res://project/systems/world/world.tscn" id="4_867wk"]
+[ext_resource type="Script" uid="uid://u4855dvw8hyu" path="res://project/features/timer/timer_tracker.gd" id="5_3w5ri"]
 [ext_resource type="Script" uid="uid://dxuf40asaxghr" path="res://project/features/score/score_tracker.gd" id="5_867wk"]
+[ext_resource type="Script" uid="uid://b20vwp06u1y5s" path="res://project/core/game_states.gd" id="6_3w5ri"]
 [ext_resource type="PackedScene" uid="uid://cfbcw0r6i7ns7" path="res://project/systems/ui/ui.tscn" id="11_onni2"]
 
 [node name="Bootstrap" type="Node2D"]
@@ -14,3 +16,9 @@ script = ExtResource("1_867wk")
 
 [node name="ScoreTracker" type="Node" parent="."]
 script = ExtResource("5_867wk")
+
+[node name="TimerTracker" type="Node" parent="."]
+script = ExtResource("5_3w5ri")
+
+[node name="GameStates" type="Node" parent="."]
+script = ExtResource("6_3w5ri")
