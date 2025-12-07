@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2yylcpgwln0h"]
+[gd_scene load_steps=11 format=3 uid="uid://d2yylcpgwln0h"]
 
 [ext_resource type="Script" uid="uid://btmigtuv5r44k" path="res://project/features/environment/goal/goal.gd" id="1_maepi"]
 [ext_resource type="Texture2D" uid="uid://mem5013goa8x" path="res://project/features/environment/goal/particles.png" id="2_42sj1"]
-[ext_resource type="Script" path="res://project/features/environment/goal/test123.gd" id="3_42sj1"]
+[ext_resource type="AudioStream" uid="uid://b5q05jjokswps" path="res://project/systems/audio/sounds/PowerUp1.wav" id="3_qim0k"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w6ufu"]
 particles_animation = true
@@ -26,17 +26,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="Gradient" id="Gradient_e7rb1"]
 offsets = PackedFloat32Array(0.05982906, 0.26210827, 0.36182335, 0.53276354, 0.71794873, 0.92877495)
 colors = PackedColorArray(1, 0, 0, 1, 1, 0.9666667, 0, 1, 1, 0.95, 0, 1, 0, 1, 0.0333333, 1, 0, 0.3666668, 1, 1, 0.8000002, 0, 1, 1)
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iiikl"]
-particles_animation = true
-particles_anim_h_frames = 2
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iiikl"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
-anim_offset_max = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w6ufu"]
 size = Vector2(145, 96)
@@ -74,11 +63,9 @@ color_ramp = SubResource("Gradient_iiikl")
 color_initial_ramp = SubResource("Gradient_e7rb1")
 anim_offset_max = 1.0
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_iiikl")
-texture = ExtResource("2_42sj1")
-process_material = SubResource("ParticleProcessMaterial_iiikl")
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qim0k")
+bus = &"SFX"
 
 [node name="Trigger" type="Area2D" parent="."]
 collision_mask = 2

@@ -9,3 +9,4 @@ func _ready() -> void:
 func _on_trigger_body_entered(_body: Node2D) -> void:
 	confetti_particles.emitting = true
 	Events.goal_reached.emit()
+	$Sound.play()

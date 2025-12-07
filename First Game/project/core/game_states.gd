@@ -9,7 +9,7 @@ func _ready() -> void:
 	Events.player_restarted.connect(_on_player_restarted)
 
 func _on_player_died():
-	TimeScaleService.set_time_scale(0.5)
+	TimeScaleService.set_time_scale(0.25)
 	await get_tree().create_timer(0.5).timeout
 	restart()
 

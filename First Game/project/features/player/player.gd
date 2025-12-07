@@ -40,9 +40,17 @@ var jump_buffer_timer: float
 
 var coyote_time_timer: float
 
+var id_dead: bool
+
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _input(_event):
+	if id_dead:
+		look_direction = 0
+		desired_velocity = velocity
+		is_jump_desired = false
+		is_jump_pressed = false
+		return
 	look_direction = Input.get_axis("move_left", "move_right")#-1 | 0 | 1
 	desired_velocity = Vector2(look_direction, 0) * max(0, GROUND_MAX_RUN_SPEED)
 	if Input.is_action_just_pressed("jump"):
@@ -137,6 +145,10 @@ func flip_sprite_to_look_direction():
 		animated_sprite.flip_h = true
 
 func play_animation():
+	if id_dead:
+		animated_sprite.play("death")
+		return
+
 	if is_on_floor():
 		if velocity.x == 0:
 			animated_sprite.play("idle")
@@ -145,9 +157,13 @@ func play_animation():
 	else:
 		animated_sprite.play("jump")
 
-func die():
-	$CollisionShape2D.queue_free()
+func die(knockback):
+	if id_dead:
+		return
+	id_dead = true
+	velocity = knockback
 	Events.player_died.emit()
+	$DeathSound.play()
 
 func restart():
 	Events.player_restarted.emit()

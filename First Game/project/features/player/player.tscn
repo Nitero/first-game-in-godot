@@ -1,7 +1,28 @@
-[gd_scene load_steps=26 format=3 uid="uid://dqnaqj8yb6hwd"]
+[gd_scene load_steps=32 format=3 uid="uid://dqnaqj8yb6hwd"]
 
 [ext_resource type="Script" uid="uid://dhojb01i6t155" path="res://project/features/player/player.gd" id="1_ofpvf"]
 [ext_resource type="Texture2D" uid="uid://b8cmjj8vq3r8d" path="res://project/features/player/knight.png" id="1_p3dy5"]
+[ext_resource type="AudioStream" uid="uid://d3ga5iqgco704" path="res://project/systems/audio/sounds/hurt.wav" id="3_e0862"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvt4r"]
+atlas = ExtResource("1_p3dy5")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0001b"]
+atlas = ExtResource("1_p3dy5")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lbcr"]
+atlas = ExtResource("1_p3dy5")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eejdw"]
+atlas = ExtResource("1_p3dy5")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e30vy"]
+atlas = ExtResource("1_p3dy5")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq0sc"]
 atlas = ExtResource("1_p3dy5")
@@ -91,6 +112,26 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lvt4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0001b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lbcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eejdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e30vy")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_eq0sc")
 }, {
 "duration": 1.0,
@@ -178,10 +219,15 @@ script = ExtResource("1_ofpvf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_81gkq")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
+frame_progress = 0.47511742
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7.5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_w28uj")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_e0862")
+bus = &"SFX"

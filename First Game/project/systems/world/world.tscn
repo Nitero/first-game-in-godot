@@ -240,6 +240,8 @@ position_smoothing_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_neqsu")]
 position = Vector2(74, 141)
+horizontal_knockback = 0.0
+vertical_knockback = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_cn5tm")
