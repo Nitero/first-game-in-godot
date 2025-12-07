@@ -210,6 +210,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w28uj"]
+height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -219,12 +220,11 @@ script = ExtResource("1_ofpvf")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_81gkq")
-animation = &"death"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.47511742
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7.5)
+position = Vector2(0, -6)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_w28uj")
 

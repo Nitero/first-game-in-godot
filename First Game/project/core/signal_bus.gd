@@ -1,6 +1,9 @@
 extends Node
 
 @warning_ignore("unused_signal")
+signal game_started()
+
+@warning_ignore("unused_signal")
 signal coin_collected
 
 @warning_ignore("unused_signal")

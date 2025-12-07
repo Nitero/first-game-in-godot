@@ -5,7 +5,7 @@ const GROUND_MAX_RUN_SPEED = 115
 
 const GROUND_ACCELERATION = 500
 const GROUND_DECELERATION = 500
-const GROUND_TURN_SPEED = 800
+const GROUND_TURN_SPEED = 1000
 
 const AIR_ACCELERATION = 500
 const AIR_DECELERATION = 500
@@ -45,6 +45,8 @@ var _is_dead: bool
 @onready var _animated_sprite = $AnimatedSprite2D
 
 func _input(_event):
+	if Input.is_action_just_pressed("restart"):
+		_restart()
 	if _is_dead:
 		_input_direction = 0
 		_desired_velocity = velocity
@@ -56,8 +58,6 @@ func _input(_event):
 	if Input.is_action_just_pressed("jump"):
 		_is_jump_desired = true
 	_is_jump_pressed = Input.is_action_pressed("jump")
-	if Input.is_action_just_pressed("restart"):
-		_restart()
 
 func _process(delta):
 	_poll_jump_buffer(delta)
