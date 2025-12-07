@@ -1,13 +1,13 @@
 extends Node
 
-var score = 0
+var _score = 0
 
 func _ready():
-	Events.coin_collected.connect(_on_coin_collected)
+	SignalBus.coin_collected.connect(_on_coin_collected)
 	
 func _on_coin_collected():
-	add_point()
+	_add_point()
 
-func add_point():
-	score += 1
-	Events.score_changed.emit(score)
+func _add_point():
+	_score += 1
+	SignalBus.score_changed.emit(_score)

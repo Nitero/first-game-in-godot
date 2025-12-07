@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2yylcpgwln0h"]
+[gd_scene load_steps=10 format=3 uid="uid://d2yylcpgwln0h"]
 
 [ext_resource type="Script" uid="uid://btmigtuv5r44k" path="res://project/features/environment/goal/goal.gd" id="1_maepi"]
 [ext_resource type="Texture2D" uid="uid://mem5013goa8x" path="res://project/features/environment/goal/particles.png" id="2_42sj1"]
@@ -36,9 +36,11 @@ script = ExtResource("1_maepi")
 [node name="ConfettiParticles" type="CPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_w6ufu")
 position = Vector2(0, 50)
+emitting = false
 amount = 420
 texture = ExtResource("2_42sj1")
 lifetime = 5.0
+one_shot = true
 explosiveness = 0.95
 randomness = 1.0
 lifetime_randomness = 0.25

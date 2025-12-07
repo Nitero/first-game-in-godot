@@ -36,8 +36,8 @@ func test_jump_apex_height_and_duration() -> void:
 	var start_y = player.position.y
 
 #	input_sender.action_down("jump")#TODO: get it working using input simulation
-	player.is_jump_desired = true
-	player.is_jump_pressed = true
+	player._is_jump_desired = true
+	player._is_jump_pressed = true
 
 	var highest_y = player.position.y
 	var last_y = player.position.y

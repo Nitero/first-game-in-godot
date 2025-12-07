@@ -240,8 +240,8 @@ position_smoothing_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("2_neqsu")]
 position = Vector2(74, 141)
-horizontal_knockback = 0.0
-vertical_knockback = 0.0
+_horizontal_knockback = 0.0
+_vertical_knockback = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_cn5tm")
@@ -347,31 +347,31 @@ position = Vector2(136, 0)
 [node name="ChainBall" parent="Traps" instance=ExtResource("8_3qn4w")]
 position = Vector2(168, 104)
 rotation = 3.1415927
-start_angle = 180.0
+_start_angle = 180.0
 
 [node name="ChainBall2" parent="Traps" instance=ExtResource("8_3qn4w")]
 position = Vector2(200, -8)
 rotation = 0.0
-length_steps = 2
+_length_steps = 2
 
 [node name="ChainBall4" parent="Traps" instance=ExtResource("8_3qn4w")]
 position = Vector2(328, 56)
 rotation = 3.1415927
-start_angle = 180.0
-spin_duration = 1.5
+_start_angle = 180.0
+_spin_duration = 1.5
 
 [node name="ChainBallGroup" type="Node2D" parent="Traps"]
 
 [node name="ChainBall3" parent="Traps/ChainBallGroup" instance=ExtResource("8_3qn4w")]
 position = Vector2(504, 56)
 rotation = 0.0
-length_steps = 4
+_length_steps = 4
 
 [node name="ChainBall4" parent="Traps/ChainBallGroup" instance=ExtResource("8_3qn4w")]
 position = Vector2(504, 56)
 rotation = 3.1415927
-length_steps = 2
-start_angle = 180.0
+_length_steps = 2
+_start_angle = 180.0
 
 [node name="ChainBallGroup2" type="Node2D" parent="Traps"]
 position = Vector2(736, -9)
@@ -379,20 +379,20 @@ position = Vector2(736, -9)
 [node name="ChainBall3" parent="Traps/ChainBallGroup2" instance=ExtResource("8_3qn4w")]
 position = Vector2(-24, 1)
 rotation = 0.0
-length_steps = 4
+_length_steps = 4
 
 [node name="ChainBall4" parent="Traps/ChainBallGroup2" instance=ExtResource("8_3qn4w")]
 position = Vector2(-24, 1)
 rotation = 3.1415927
-length_steps = 2
-start_angle = 180.0
-spin_direction = 1.0
-spin_duration = 1.0
+_length_steps = 2
+_start_angle = 180.0
+_spin_direction = 1.0
+_spin_duration = 1.0
 
 [node name="ChainBall3" parent="Traps" instance=ExtResource("8_3qn4w")]
 position = Vector2(840, -8)
 rotation = 0.0
-length_steps = 1
+_length_steps = 1
 
 [node name="Goal" parent="." instance=ExtResource("10_iiikl")]
 position = Vector2(568, -105)

@@ -1,16 +1,16 @@
 extends Node
 
-var timer = 0
-var was_goal_reached = false
+var _timer = 0
+var _was_goal_reached = false
 
 func _ready():
-	Events.goal_reached.connect(_on_goal_reached)
+	SignalBus.goal_reached.connect(_on_goal_reached)
 
 func _process(delta):
-	if was_goal_reached:
+	if _was_goal_reached:
 		return
-	timer += delta
-	Events.timer_changed.emit(timer)
+	_timer += delta
+	SignalBus.timer_changed.emit(_timer)
 
 func _on_goal_reached():
-	was_goal_reached = true
+	_was_goal_reached = true

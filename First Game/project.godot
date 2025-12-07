@@ -20,7 +20,7 @@ buses/default_bus_layout="res://project/systems/audio/default_bus_layout.tres"
 
 [autoload]
 
-Events="*res://project/core/events.gd"
+SignalBus="*res://project/core/signal_bus.gd"
 Music="*res://project/systems/audio/music.tscn"
 TimeScaleService="*res://project/systems/time/time_scale_service.gd"
 
