@@ -6,7 +6,7 @@ extends Label
 func _ready():
 	if !Engine.is_editor_hint():
 		_on_timer_changed(0);
-	SignalBus.timer_changed.connect(_on_timer_changed)
+		SignalBus.timer_changed.connect(_on_timer_changed)
 
 func _process(_delta):
 	if Engine.is_editor_hint():
